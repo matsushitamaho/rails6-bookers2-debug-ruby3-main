@@ -2,11 +2,20 @@
 
 <table class="table table-hover table-inverse">
   <!--検索対象モデルがUserの時 -->
+  <thead>
+    <tr>
+      <th></th>
+      <th>User Name</th>
+      <th></th>
+    </tr>
+  </thead>
   <% if @range == "User" %>
     <tbody>
       <% @users.each do |user| %>
         <tr>
+          <td><%= image_tag user.get_profile_image, size: '50x50' %></td>
           <td><%= user.name %></td>
+          <td><%= link_to 'Show', user, class: "user_#{user.id}" %></td>
         </tr>
       <% end %>
     </tbody>
